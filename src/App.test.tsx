@@ -11,7 +11,7 @@ test('renders a heading', () => {
 test('counter has initial value', () => {
   render(<App />);
 
-  expect(screen.getByText('1')).toBeInTheDocument();
+  expect(screen.getByTestId('counter')).toHaveTextContent('1');
 });
 
 test('renders a + button', () => {
@@ -25,7 +25,7 @@ test('plus button increments by 1', () => {
 
   const button = screen.getByRole('button', { name: '+' })
   fireEvent.click(button)
-  expect(screen.getByText('2')).toBeInTheDocument();
+  expect(screen.getByTestId('counter')).toHaveTextContent('2');
 });
 
 test('renders a - button', () => {
@@ -39,9 +39,15 @@ test('minus button decrements by 1', () => {
 
   const plusButton = screen.getByRole('button', { name: '+' })
   fireEvent.click(plusButton)
-  expect(screen.getByText('2')).toBeInTheDocument();
+  expect(screen.getByTestId('counter')).toHaveTextContent('2');
 
   const minusButton = screen.getByRole('button', { name: '-' })
   fireEvent.click(minusButton)
-  expect(screen.getByText('1')).toBeInTheDocument();
+  expect(screen.getByTestId('counter')).toHaveTextContent('1');
+});
+
+test('renders a result', () => {
+  render(<App />);
+
+  expect(screen.getByTestId('result')).toHaveTextContent('1');
 });

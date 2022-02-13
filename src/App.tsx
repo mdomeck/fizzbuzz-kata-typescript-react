@@ -9,9 +9,10 @@ function App() {
       <h1>FizzBuzz React App</h1>
       <div>
         <button onClick={decrease}>-</button>
-        <span>{counter}</span>
+        <span data-testid='counter'>{counter}</span>
         <button onClick={increase}>+</button>
       </div>
+      <span data-testid='result'>{result()}</span>
     </div>
   );
 
@@ -22,6 +23,10 @@ function App() {
   function decrease() {
     if (counter > 1)
       setCounter(count => count - 1)
+  }
+
+  function result() {
+    return counter
   }
 }
 
