@@ -27,3 +27,21 @@ test('plus button increments by 1', () => {
   fireEvent.click(button)
   expect(screen.getByText('2')).toBeInTheDocument();
 });
+
+test('renders a - button', () => {
+  render(<App />);
+
+  expect(screen.getByText('-')).toBeInTheDocument();
+});
+
+test('minus button decrements by 1', () => {
+  render(<App />);
+
+  const plusButton = screen.getByRole('button', { name: '+' })
+  fireEvent.click(plusButton)
+  expect(screen.getByText('2')).toBeInTheDocument();
+
+  const minusButton = screen.getByRole('button', { name: '-' })
+  fireEvent.click(minusButton)
+  expect(screen.getByText('1')).toBeInTheDocument();
+});

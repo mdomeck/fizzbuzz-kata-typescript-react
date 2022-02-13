@@ -8,6 +8,7 @@ function App() {
     <div className="App">
       <h1>FizzBuzz React App</h1>
       <div>
+        <button onClick={decrease}>-</button>
         <span>{counter}</span>
         <button onClick={increase}>+</button>
       </div>
@@ -16,6 +17,11 @@ function App() {
 
   function increase() {
     setCounter(count => count + 1)
+  }
+
+  function decrease() {
+    if (counter > 1)
+      setCounter(count => count - 1)
   }
 }
 
