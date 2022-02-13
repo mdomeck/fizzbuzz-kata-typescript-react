@@ -7,3 +7,9 @@ test('renders a heading', () => {
 
   expect(screen.getByText('FizzBuzz React App')).toBeInTheDocument();
 });
+
+test('counter has initial value', () => {
+  render(<App />);
+
+  expect(screen.getByText('1')).toBeInTheDocument();
+});
