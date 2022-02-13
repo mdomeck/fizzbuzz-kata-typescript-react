@@ -9,9 +9,14 @@ function App() {
       <h1>FizzBuzz React App</h1>
       <div>
         <span>{counter}</span>
+        <button onClick={increase}>+</button>
       </div>
     </div>
   );
+
+  function increase() {
+    setCounter(count => count + 1)
+  }
 }
 
 export default App;
