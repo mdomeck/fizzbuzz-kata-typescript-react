@@ -26,7 +26,14 @@ function App() {
   }
 
   function result() {
+    if (multOfThree()) {
+      return 'Fizz'
+    }
     return counter
+  }
+
+  function multOfThree() {
+    return counter % 3 === 0
   }
 }
 
