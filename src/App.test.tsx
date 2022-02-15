@@ -11,7 +11,7 @@ test('renders a heading', () => {
 test('counter has initial value', () => {
   render(<App />);
 
-  expect(screen.getByTestId('counter')).toHaveTextContent('1');
+  expect(screen.getAllByText('1')).toHaveLength(2)
 });
 
 test('renders a + button', () => {
@@ -25,7 +25,7 @@ test('plus button increments by 1', () => {
 
   const button = screen.getByRole('button', { name: '+' })
   fireEvent.click(button)
-  expect(screen.getByTestId('counter')).toHaveTextContent('2');
+  expect(screen.getAllByText('2')).toHaveLength(2)
 });
 
 test('renders a - button', () => {
@@ -39,17 +39,17 @@ test('minus button decrements by 1', () => {
 
   const plusButton = screen.getByRole('button', { name: '+' })
   fireEvent.click(plusButton)
-  expect(screen.getByTestId('counter')).toHaveTextContent('2');
+  expect(screen.getAllByText('2')).toHaveLength(2)
 
   const minusButton = screen.getByRole('button', { name: '-' })
   fireEvent.click(minusButton)
-  expect(screen.getByTestId('counter')).toHaveTextContent('1');
+  expect(screen.getAllByText('1')).toHaveLength(2)
 });
 
 test('renders a result', () => {
   render(<App />);
 
-  expect(screen.getByTestId('result')).toHaveTextContent('1');
+  expect(screen.getAllByText('1')).toHaveLength(2)
 });
 
 test('result returns Fizz', () => {
@@ -57,8 +57,8 @@ test('result returns Fizz', () => {
   const button = screen.getByRole('button', { name: '+' })
   fireEvent.click(button)
   fireEvent.click(button)
-  expect(screen.getByTestId('counter')).toHaveTextContent('3')
-  expect(screen.getByTestId('result')).toHaveTextContent('Fizz')
+  expect(screen.getByText('3')).toBeInTheDocument()
+  expect(screen.getByText('Fizz')).toBeInTheDocument()
 })
 
 test('result returns Buzz', () => {
@@ -68,8 +68,8 @@ test('result returns Buzz', () => {
   fireEvent.click(button)
   fireEvent.click(button)
   fireEvent.click(button)
-  expect(screen.getByTestId('counter')).toHaveTextContent('5')
-  expect(screen.getByTestId('result')).toHaveTextContent('Buzz')
+  expect(screen.getByText('5')).toBeInTheDocument()
+  expect(screen.getByText('Buzz')).toBeInTheDocument()
 })
 
 test('result returns FizzBuzz', () => {
@@ -89,6 +89,6 @@ test('result returns FizzBuzz', () => {
   fireEvent.click(button)
   fireEvent.click(button)
   fireEvent.click(button)
-  expect(screen.getByTestId('counter')).toHaveTextContent('15')
-  expect(screen.getByTestId('result')).toHaveTextContent('FizzBuzz')
+  expect(screen.getByText('15')).toBeInTheDocument()
+  expect(screen.getByText('FizzBuzz')).toBeInTheDocument()
 })

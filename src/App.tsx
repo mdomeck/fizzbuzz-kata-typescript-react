@@ -9,10 +9,10 @@ function App() {
       <h1>FizzBuzz React App</h1>
       <div>
         <button onClick={decrease}>-</button>
-        <span data-testid='counter'>{counter}</span>
+        <span>{counter}</span>
         <button onClick={increase}>+</button>
       </div>
-      <span data-testid='result'>{result()}</span>
+      <span>{result()}</span>
     </div>
   );
 
