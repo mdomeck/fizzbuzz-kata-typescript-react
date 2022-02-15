@@ -60,3 +60,14 @@ test('result returns Fizz', () => {
   expect(screen.getByTestId('counter')).toHaveTextContent('3')
   expect(screen.getByTestId('result')).toHaveTextContent('Fizz')
 })
+
+test('result returns Buzz', () => {
+  render(<App />)
+  const button = screen.getByRole('button', { name: '+' })
+  fireEvent.click(button)
+  fireEvent.click(button)
+  fireEvent.click(button)
+  fireEvent.click(button)
+  expect(screen.getByTestId('counter')).toHaveTextContent('5')
+  expect(screen.getByTestId('result')).toHaveTextContent('Buzz')
+})

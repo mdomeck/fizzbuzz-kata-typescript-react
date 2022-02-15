@@ -26,10 +26,17 @@ function App() {
   }
 
   function result() {
+    if (multOfFive()) {
+      return 'Buzz'
+    }
     if (multOfThree()) {
       return 'Fizz'
     }
     return counter
+  }
+
+  function multOfFive() {
+    return counter % 5 === 0
   }
 
   function multOfThree() {
