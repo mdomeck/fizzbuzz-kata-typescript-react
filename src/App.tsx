@@ -26,6 +26,9 @@ function App() {
   }
 
   function result() {
+    if (multOfFifteen()) {
+      return 'FizzBuzz'
+    }
     if (multOfFive()) {
       return 'Buzz'
     }
@@ -33,6 +36,10 @@ function App() {
       return 'Fizz'
     }
     return counter
+  }
+
+  function multOfFifteen() {
+    return counter % 15 === 0
   }
 
   function multOfFive() {
