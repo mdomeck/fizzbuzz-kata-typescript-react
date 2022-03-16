@@ -3,25 +3,25 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import App from './App';
 
 test('renders a heading', () => {
-  render(<App />);
+  render(<App currentResult={1} />);
 
   expect(screen.getByText('FizzBuzz React App')).toBeInTheDocument();
 });
 
 test('counter has initial value', () => {
-  render(<App />);
+  render(<App currentResult={1} />);
 
   expect(screen.getAllByText('1')).toHaveLength(2)
 });
 
 test('renders a + button', () => {
-  render(<App />);
+  render(<App currentResult={1} />);
 
   expect(screen.getByText('+')).toBeInTheDocument();
 });
 
 test('plus button increments by 1', () => {
-  render(<App />);
+  render(<App currentResult={1} />);
 
   const button = screen.getByRole('button', { name: '+' })
   fireEvent.click(button)
@@ -29,13 +29,13 @@ test('plus button increments by 1', () => {
 });
 
 test('renders a - button', () => {
-  render(<App />);
+  render(<App currentResult={1} />);
 
   expect(screen.getByText('-')).toBeInTheDocument();
 });
 
 test('minus button decrements by 1', () => {
-  render(<App />);
+  render(<App currentResult={1} />);
 
   const plusButton = screen.getByRole('button', { name: '+' })
   fireEvent.click(plusButton)
@@ -47,13 +47,13 @@ test('minus button decrements by 1', () => {
 });
 
 test('renders a result', () => {
-  render(<App />);
+  render(<App currentResult={1} />);
 
   expect(screen.getAllByText('1')).toHaveLength(2)
 });
 
 test('result returns Fizz', () => {
-  render(<App />)
+  render(<App currentResult={1} />)
   const button = screen.getByRole('button', { name: '+' })
   fireEvent.click(button)
   fireEvent.click(button)
@@ -62,7 +62,7 @@ test('result returns Fizz', () => {
 })
 
 test('result returns Buzz', () => {
-  render(<App />)
+  render(<App currentResult={1} />)
   const button = screen.getByRole('button', { name: '+' })
   fireEvent.click(button)
   fireEvent.click(button)
@@ -73,7 +73,7 @@ test('result returns Buzz', () => {
 })
 
 test('result returns FizzBuzz', () => {
-  render(<App />)
+  render(<App currentResult={1} />)
   const button = screen.getByRole('button', { name: '+' })
   fireEvent.click(button)
   fireEvent.click(button)

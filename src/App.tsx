@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import './App.css';
+import Result from './result';
 
-function App() {
-  const [counter, setCounter] = useState(1)
+type Props = {
+  currentResult: number
+}
+
+const App: FC<Props> = ({ currentResult }: Props) => {
+  const [counter, setCounter] = useState(currentResult)
 
   return (
     <div className="App">
@@ -12,7 +17,7 @@ function App() {
         <span>{counter}</span>
         <button onClick={increase}>+</button>
       </div>
-      <span>{result()}</span>
+      <Result currentResult={counter} />
     </div>
   );
 
@@ -23,31 +28,6 @@ function App() {
   function decrease() {
     if (counter > 1)
       setCounter(count => count - 1)
-  }
-
-  function result() {
-    if (multOfFifteen()) {
-      return 'FizzBuzz'
-    }
-    if (multOfFive()) {
-      return 'Buzz'
-    }
-    if (multOfThree()) {
-      return 'Fizz'
-    }
-    return counter
-  }
-
-  function multOfFifteen() {
-    return counter % 15 === 0
-  }
-
-  function multOfFive() {
-    return counter % 5 === 0
-  }
-
-  function multOfThree() {
-    return counter % 3 === 0
   }
 }
 
