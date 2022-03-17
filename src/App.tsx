@@ -1,13 +1,13 @@
 import React, { FC, useState } from 'react';
 import './App.css';
-import Result from './result';
+import FizzBuzz from './FizzBuzz';
 
 type Props = {
-  currentResult: number
+  initialCount?: number
 }
 
-const App: FC<Props> = ({ currentResult }: Props) => {
-  const [counter, setCounter] = useState(currentResult)
+const App: FC<Props> = ({ initialCount }: Props) => {
+  const [counter, setCounter] = useState(initialCount || 1)
 
   return (
     <div className="App">
@@ -17,7 +17,7 @@ const App: FC<Props> = ({ currentResult }: Props) => {
         <span>{counter}</span>
         <button onClick={increase}>+</button>
       </div>
-      <Result currentResult={counter} />
+      <FizzBuzz currentResult={counter} />
     </div>
   );
 
